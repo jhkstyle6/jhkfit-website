@@ -1,0 +1,9 @@
+# Local tooling
+.claude/
+
+# Photoshop source files (not used by the live site)
+*.psd
+
+# Video files - too large for a normal git push (GitHub blocks >100MB files).
+# The two videos the site actually uses are hosted as GitHub Release assets instead.
+assets/justin-kim/*.mp4
