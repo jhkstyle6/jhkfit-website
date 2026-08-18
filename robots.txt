@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jhkstyle6.github.io/jhkfit-website/sitemap.xml
