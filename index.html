@@ -166,19 +166,13 @@
       <div class="container story-grid">
         <div class="story-photo-frame">
           <div class="collage-item collage-big">
-            <img class="collage-photo is-active" data-photo="0" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
-            <img class="collage-photo" data-photo="1" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
-            <img class="collage-photo" data-photo="2" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
+            <img class="collage-photo" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
           </div>
           <div class="collage-item collage-top">
-            <img class="collage-photo" data-photo="0" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
-            <img class="collage-photo is-active" data-photo="1" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
-            <img class="collage-photo" data-photo="2" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
+            <img class="collage-photo" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
           </div>
           <div class="collage-item collage-bottom">
-            <img class="collage-photo" data-photo="0" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
-            <img class="collage-photo" data-photo="1" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
-            <img class="collage-photo is-active" data-photo="2" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
+            <img class="collage-photo" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
           </div>
         </div>
         <div class="story-copy">
@@ -324,29 +318,35 @@
     })();
 
     (function () {
-      var posA = document.querySelector('.collage-big');
-      var posB = document.querySelector('.collage-top');
-      var posC = document.querySelector('.collage-bottom');
-      if (!posA || !posB || !posC) return;
+      var imgA = document.querySelector('.collage-big .collage-photo');
+      var imgB = document.querySelector('.collage-top .collage-photo');
+      var imgC = document.querySelector('.collage-bottom .collage-photo');
+      if (!imgA || !imgB || !imgC) return;
 
-      function photos(pos) { return Array.from(pos.querySelectorAll('.collage-photo')); }
-      function activeIndex(imgs) { return imgs.findIndex(function (img) { return img.classList.contains('is-active'); }); }
+      // each position's currently-shown photo, tracked by {src, alt}
+      var state = [
+        { src: imgA.getAttribute('src'), alt: imgA.getAttribute('alt') },
+        { src: imgB.getAttribute('src'), alt: imgB.getAttribute('alt') },
+        { src: imgC.getAttribute('src'), alt: imgC.getAttribute('alt') }
+      ];
+      var els = [imgA, imgB, imgC];
 
-      var imgsA = photos(posA), imgsB = photos(posB), imgsC = photos(posC);
+      function swapTo(el, photo) {
+        el.classList.add('is-swapping');
+        setTimeout(function () {
+          el.setAttribute('src', photo.src);
+          el.setAttribute('alt', photo.alt);
+          el.classList.remove('is-swapping');
+        }, 500);
+      }
 
       setInterval(function () {
-        var activeA = activeIndex(imgsA);
-        var activeB = activeIndex(imgsB);
-        var activeC = activeIndex(imgsC);
-
-        imgsA[activeA].classList.remove('is-active');
-        imgsB[activeB].classList.remove('is-active');
-        imgsC[activeC].classList.remove('is-active');
-
-        // clockwise: photo in A moves to C, C moves to B, B moves to A
-        imgsC[activeA].classList.add('is-active');
-        imgsB[activeC].classList.add('is-active');
-        imgsA[activeB].classList.add('is-active');
+        // clockwise: photo in A (index 0) moves to C (index 2), C moves to B (index 1), B moves to A
+        var next = [state[1], state[2], state[0]];
+        for (var i = 0; i < els.length; i++) {
+          swapTo(els[i], next[i]);
+        }
+        state = next;
       }, 2000);
     })();
 
