@@ -124,7 +124,7 @@
           </article>
           <article class="mockup-card">
             <span class="mockup-kicker">Direct Coaching</span>
-            <img src="assets/justin-kim/justin-kim-03.jpg" alt="Justin Kim coaching brand image">
+            <img src="assets/justin-kim/posing.png" alt="Justin Kim coaching brand image">
             <p>Coaching paths for lifestyle transformation, contest prep, off-season growth, and posing.</p>
           </article>
         </div>
@@ -134,9 +134,15 @@
     <section class="story-section" id="about">
       <div class="container story-grid">
         <div class="story-photo-frame">
-          <img class="slide is-active" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
-          <img class="slide" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
-          <img class="slide" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
+          <div class="collage-item collage-big">
+            <img src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
+          </div>
+          <div class="collage-item collage-top">
+            <img src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
+          </div>
+          <div class="collage-item collage-bottom">
+            <img src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
+          </div>
         </div>
         <div class="story-copy">
           <span class="eyebrow">This Is My Story</span>
@@ -277,17 +283,6 @@
         groups[indices[current]].forEach(function (el) { el.classList.remove('is-active'); });
         current = (current + 1) % indices.length;
         groups[indices[current]].forEach(function (el) { el.classList.add('is-active'); });
-      }, 5000);
-    })();
-
-    (function () {
-      var slides = document.querySelectorAll('.story-photo-frame .slide');
-      if (slides.length < 2) return;
-      var current = 0;
-      setInterval(function () {
-        slides[current].classList.remove('is-active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('is-active');
       }, 5000);
     })();
 

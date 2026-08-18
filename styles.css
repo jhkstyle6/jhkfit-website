@@ -604,30 +604,34 @@ form .btn { border: 0; cursor: pointer; }
 }
 
 .story-photo-frame {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "big big"
+    "top bottom";
+  gap: 14px;
+}
+
+.collage-item {
   overflow: hidden;
-  min-height: 720px;
-  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6fa;
+  border-radius: 20px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 
-.story-photo-frame img {
+.collage-item img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
-.story-photo-frame img.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.4s ease;
-}
-
-.story-photo-frame img.slide.is-active {
-  opacity: 1;
-}
+.collage-big { grid-area: big; }
+.collage-top { grid-area: top; }
+.collage-bottom { grid-area: bottom; }
 
 .story-copy {
   padding: 1rem 0;
@@ -744,7 +748,8 @@ form .btn { border: 0; cursor: pointer; }
   }
 
   .story-photo-frame {
-    min-height: 420px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 }
 
