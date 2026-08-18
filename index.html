@@ -114,7 +114,7 @@
           </article>
           <article class="mockup-card">
             <span class="mockup-kicker">Nutrition Support</span>
-            <img src="assets/workout-examples/workout-example-02.jpg" alt="Sample JHKFIT nutrition and check-in style preview">
+            <img src="assets/justin-kim/Nutrition.png" alt="Sample JHKFIT nutrition and check-in style preview">
             <p>Practical nutrition guidance that supports muscle growth, fat loss, and consistency.</p>
           </article>
           <article class="mockup-card">
@@ -134,7 +134,9 @@
     <section class="story-section" id="about">
       <div class="container story-grid">
         <div class="story-photo-frame">
-          <img src="assets/justin-kim/justin-kim-07.jpg" alt="Justin Kim portrait for the JHKFIT story section">
+          <img class="slide is-active" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
+          <img class="slide" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
+          <img class="slide" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
         </div>
         <div class="story-copy">
           <span class="eyebrow">This Is My Story</span>
@@ -275,6 +277,17 @@
         groups[indices[current]].forEach(function (el) { el.classList.remove('is-active'); });
         current = (current + 1) % indices.length;
         groups[indices[current]].forEach(function (el) { el.classList.add('is-active'); });
+      }, 5000);
+    })();
+
+    (function () {
+      var slides = document.querySelectorAll('.story-photo-frame .slide');
+      if (slides.length < 2) return;
+      var current = 0;
+      setInterval(function () {
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
       }, 5000);
     })();
 
