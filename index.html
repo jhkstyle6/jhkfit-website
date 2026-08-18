@@ -20,6 +20,7 @@
   <meta name="twitter:image" content="https://jhkstyle6.github.io/jhkfit-website/assets/justin-kim/16x9%20website%20cover%20photo%201.jpg">
 
   <link rel="stylesheet" href="styles.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
   <script type="application/ld+json">
   {
@@ -116,16 +117,15 @@
           </div>
         </div>
         <div class="form-card funnel-form-card">
-          <form class="funnel-form">
-            <label><span>Full Name</span><input type="text" name="name" placeholder="Your full name"></label>
-            <label><span>Email Address</span><input type="email" name="email" placeholder="you@example.com"></label>
-            <label><span>Phone / Preferred Contact</span><input type="text" name="contact" placeholder="Phone, Instagram, or best contact method"></label>
-            <label><span>Coaching Type</span><select name="coachingType"><option>Lifestyle Transformation</option><option>Competition Prep Coaching</option><option>Off-Season Growth Coaching</option><option>Full Season Coaching</option><option>Posing Coaching</option></select></label>
-            <label><span>Current Training Level</span><select name="experience"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
-            <label><span>Your Goal</span><textarea name="goal" placeholder="What kind of physique are you trying to build?"></textarea></label>
-            <label><span>Biggest Struggle Right Now</span><textarea name="struggle" placeholder="What has been stopping your progress so far?"></textarea></label>
-            <button class="btn" type="submit">Apply for Coaching</button>
-          </form>
+          <p class="coaching-type-label">What are you looking for?</p>
+          <div class="coaching-type-options" role="group" aria-label="Coaching focus">
+            <button type="button" class="coaching-type-btn" data-type="Lifestyle Transformation">Lifestyle Transformation</button>
+            <button type="button" class="coaching-type-btn" data-type="Competition Prep">Competition Prep</button>
+            <button type="button" class="coaching-type-btn" data-type="Off-Season Growth">Off-Season Growth</button>
+            <button type="button" class="coaching-type-btn" data-type="Posing Coaching">Posing Coaching</button>
+          </div>
+          <button type="button" class="btn book-call-btn" id="bookCallBtn">Book Your Free Call</button>
+          <p class="form-note">You'll answer a few quick questions on the next step so I can prep for our call.</p>
         </div>
       </div>
     </section>
@@ -300,7 +300,45 @@
     </div>
   </footer>
 
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script>
+    (function () {
+      var CALENDLY_URL = 'https://calendly.com/jhkstyle6/30min';
+      var typeButtons = document.querySelectorAll('.coaching-type-btn');
+      var bookBtn = document.getElementById('bookCallBtn');
+      if (!bookBtn) return;
+      var selectedType = null;
+
+      typeButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var alreadySelected = btn.classList.contains('is-selected');
+          typeButtons.forEach(function (b) { b.classList.remove('is-selected'); });
+          if (!alreadySelected) {
+            btn.classList.add('is-selected');
+            selectedType = btn.dataset.type;
+          } else {
+            selectedType = null;
+          }
+        });
+      });
+
+      bookBtn.addEventListener('click', function () {
+        var options = { url: CALENDLY_URL };
+        // Prefills the visitor's coaching-focus pick into the 4th invitee
+        // question slot on the Calendly event. Swap that question to a
+        // matching "what type of coaching" radio-button question in the
+        // Calendly dashboard for a clean match.
+        if (selectedType) {
+          options.prefill = { customAnswers: { a4: selectedType } };
+        }
+        if (window.Calendly) {
+          window.Calendly.initPopupWidget(options);
+        } else {
+          window.open(CALENDLY_URL, '_blank');
+        }
+      });
+    })();
+
     (function () {
       var groups = {};
       document.querySelectorAll('.funnel-hero-slideshow .slide').forEach(function (el) {
