@@ -166,13 +166,19 @@
       <div class="container story-grid">
         <div class="story-photo-frame">
           <div class="collage-item collage-big">
-            <img src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
+            <img class="collage-photo is-active" data-photo="0" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
+            <img class="collage-photo" data-photo="1" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
+            <img class="collage-photo" data-photo="2" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
           </div>
           <div class="collage-item collage-top">
-            <img src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
+            <img class="collage-photo" data-photo="0" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
+            <img class="collage-photo is-active" data-photo="1" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
+            <img class="collage-photo" data-photo="2" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
           </div>
           <div class="collage-item collage-bottom">
-            <img src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
+            <img class="collage-photo" data-photo="0" src="assets/justin-kim/about me comp 2.jpg" alt="Justin Kim posing at a natural bodybuilding competition">
+            <img class="collage-photo" data-photo="1" src="assets/justin-kim/transformation.jpg" alt="Justin Kim physique transformation">
+            <img class="collage-photo is-active" data-photo="2" src="assets/justin-kim/about me comp.jpg" alt="Justin Kim on stage at a natural bodybuilding competition">
           </div>
         </div>
         <div class="story-copy">
@@ -315,6 +321,33 @@
         current = (current + 1) % indices.length;
         groups[indices[current]].forEach(function (el) { el.classList.add('is-active'); });
       }, 5000);
+    })();
+
+    (function () {
+      var posA = document.querySelector('.collage-big');
+      var posB = document.querySelector('.collage-top');
+      var posC = document.querySelector('.collage-bottom');
+      if (!posA || !posB || !posC) return;
+
+      function photos(pos) { return Array.from(pos.querySelectorAll('.collage-photo')); }
+      function activeIndex(imgs) { return imgs.findIndex(function (img) { return img.classList.contains('is-active'); }); }
+
+      var imgsA = photos(posA), imgsB = photos(posB), imgsC = photos(posC);
+
+      setInterval(function () {
+        var activeA = activeIndex(imgsA);
+        var activeB = activeIndex(imgsB);
+        var activeC = activeIndex(imgsC);
+
+        imgsA[activeA].classList.remove('is-active');
+        imgsB[activeB].classList.remove('is-active');
+        imgsC[activeC].classList.remove('is-active');
+
+        // clockwise: photo in A moves to C, C moves to B, B moves to A
+        imgsC[activeA].classList.add('is-active');
+        imgsB[activeC].classList.add('is-active');
+        imgsA[activeB].classList.add('is-active');
+      }, 2000);
     })();
 
     (function () {

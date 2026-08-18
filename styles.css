@@ -613,20 +613,29 @@ form .btn { border: 0; cursor: pointer; }
 }
 
 .collage-item {
+  position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: #f4f6fa;
   border-radius: 20px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 
-.collage-item img {
-  display: block;
+.collage-photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 1s ease, transform 1.6s ease;
+}
+
+.collage-photo.is-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
 }
 
 .collage-big { grid-area: big; }
