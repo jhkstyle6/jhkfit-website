@@ -307,32 +307,22 @@
       var typeButtons = document.querySelectorAll('.coaching-type-btn');
       var bookBtn = document.getElementById('bookCallBtn');
       if (!bookBtn) return;
-      var selectedType = null;
 
+      // Purely visual -- helps the visitor get clear on what they want
+      // before booking. Not sent to Calendly.
       typeButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
           var alreadySelected = btn.classList.contains('is-selected');
           typeButtons.forEach(function (b) { b.classList.remove('is-selected'); });
           if (!alreadySelected) {
             btn.classList.add('is-selected');
-            selectedType = btn.dataset.type;
-          } else {
-            selectedType = null;
           }
         });
       });
 
       bookBtn.addEventListener('click', function () {
-        var options = { url: CALENDLY_URL };
-        // Prefills the visitor's coaching-focus pick into the 4th invitee
-        // question slot on the Calendly event. Swap that question to a
-        // matching "what type of coaching" radio-button question in the
-        // Calendly dashboard for a clean match.
-        if (selectedType) {
-          options.prefill = { customAnswers: { a4: selectedType } };
-        }
         if (window.Calendly) {
-          window.Calendly.initPopupWidget(options);
+          window.Calendly.initPopupWidget({ url: CALENDLY_URL });
         } else {
           window.open(CALENDLY_URL, '_blank');
         }
