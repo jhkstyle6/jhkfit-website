@@ -642,10 +642,7 @@ form .btn { border: 0; cursor: pointer; }
 
 .story-photo-frame {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "big big"
-    "top bottom";
+  grid-template-columns: 1fr;
   gap: 14px;
 }
 
@@ -673,10 +670,6 @@ form .btn { border: 0; cursor: pointer; }
   opacity: 0;
   transform: scale(0.97);
 }
-
-.collage-big { grid-area: big; }
-.collage-top { grid-area: top; }
-.collage-bottom { grid-area: bottom; }
 
 .story-copy {
   padding: 1rem 0;
@@ -793,7 +786,6 @@ form .btn { border: 0; cursor: pointer; }
   }
 
   .story-photo-frame {
-    grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
 }
