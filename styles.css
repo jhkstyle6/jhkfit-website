@@ -80,6 +80,7 @@ main { padding-bottom: 5rem; }
   align-items: center;
   gap: 0.6rem;
   padding: 0.45rem 0.85rem;
+  margin-bottom: 1.1rem;
   border-radius: 999px;
   background: var(--blue-soft);
   border: 1px solid rgba(47,111,237,0.12);
@@ -549,10 +550,6 @@ form .btn { border: 0; cursor: pointer; }
   align-items: start;
 }
 
-.apply-copy {
-  padding-top: 1rem;
-}
-
 .funnel-form-card {
   padding: 1.6rem;
 }
@@ -679,7 +676,7 @@ form .btn { border: 0; cursor: pointer; }
 .collage-bottom { grid-area: bottom; }
 
 .story-copy {
-  padding: 1rem 0;
+  padding: 0 0 1rem;
 }
 
 .story-copy p {
