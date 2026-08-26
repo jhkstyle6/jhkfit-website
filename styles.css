@@ -40,9 +40,16 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid rgba(23, 68, 165, 0.08);
 }
 .navbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 78px; }
-.brand { display: inline-flex; align-items: center; }
-.brand-mark { width: 25px; height: 47px; color: var(--blue); transition: opacity 0.2s ease; }
-.brand:hover .brand-mark { opacity: 0.82; }
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; transition: opacity 0.2s ease; }
+.brand:hover { opacity: 0.82; }
+.brand-mark { width: 30px; height: 56px; color: var(--blue); flex-shrink: 0; }
+.brand-word {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.18em;
+  color: var(--text);
+}
 .nav-links { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
 .nav-links a { color: var(--muted); font-size: 0.96rem; }
 .nav-links a:hover, .nav-links a.active { color: var(--blue-deep); }
@@ -213,7 +220,7 @@ form .btn { border: 0; cursor: pointer; }
   .page-hero { padding-top: 3.4rem; }
   h1 { font-size: 2.6rem; }
   h2 { font-size: 2rem; }
-  .navbar { min-height: 70px; }
+  .navbar { min-height: 76px; }
   .container { width: min(calc(100% - 1.2rem), var(--max)); }
 }
 
@@ -223,7 +230,7 @@ form .btn { border: 0; cursor: pointer; }
 }
 
 .funnel-header .brand-mark,
-.funnel-header .brand-name,
+.funnel-header .brand-word,
 .funnel-header .nav-links a,
 .funnel-header .nav-links a:hover,
 .funnel-header .nav-links a.active {
