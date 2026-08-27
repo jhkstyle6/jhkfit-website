@@ -43,13 +43,7 @@ img { max-width: 100%; display: block; }
 .brand { display: inline-flex; align-items: center; gap: 0.7rem; transition: opacity 0.2s ease; }
 .brand:hover { opacity: 0.82; }
 .brand-mark { width: 30px; height: 56px; flex-shrink: 0; }
-.brand-word {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 1.3rem;
-  letter-spacing: 0.18em;
-  color: var(--text);
-}
+.brand-word { width: auto; height: 14px; flex-shrink: 0; }
 .nav-links { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
 .nav-links a { color: var(--muted); font-size: 0.96rem; }
 .nav-links a:hover, .nav-links a.active { color: var(--blue-deep); }
@@ -229,8 +223,6 @@ form .btn { border: 0; cursor: pointer; }
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.funnel-header .brand-mark,
-.funnel-header .brand-word,
 .funnel-header .nav-links a,
 .funnel-header .nav-links a:hover,
 .funnel-header .nav-links a.active {
