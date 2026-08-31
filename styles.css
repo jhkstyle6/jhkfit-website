@@ -42,8 +42,7 @@ img { max-width: 100%; display: block; }
 .navbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 78px; }
 .brand { display: inline-flex; align-items: center; gap: 0.7rem; transition: opacity 0.2s ease; }
 .brand:hover { opacity: 0.82; }
-.brand-mark { width: 30px; height: 56px; flex-shrink: 0; }
-.brand-word { width: auto; height: 14px; flex-shrink: 0; }
+.brand-logo { width: auto; height: 46px; flex-shrink: 0; }
 .nav-links { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
 .nav-links a { color: var(--muted); font-size: 0.96rem; }
 .nav-links a:hover, .nav-links a.active { color: var(--blue-deep); }
