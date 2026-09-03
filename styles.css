@@ -923,11 +923,34 @@ form .btn { border: 0; cursor: pointer; }
     padding-top: 0.6rem;
   }
 
+  .final-kicker {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .final-cta-band h2 {
+    font-size: 1.65rem;
+    line-height: 1.15;
+  }
+
+  .final-cta-band .hero-primary {
+    min-height: 46px;
+    margin-top: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+
   .final-cta-band {
-    aspect-ratio: 4909 / 5333;
-    padding: 1.5rem 1.5rem 2.5rem;
+    /* Taller than the photo's own aspect ratio on purpose: the image is sized to
+       its native width (not cropped via cover), and the extra height below it is
+       solid black, guaranteeing the text block below never overlaps the physique
+       regardless of exact viewport width. */
+    aspect-ratio: 4909 / 6600;
+    gap: 0.5rem;
+    padding: 1.1rem 1.1rem 1.3rem;
     background:
-      linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0) 66%, rgba(8,10,15,0.55) 78%, rgba(8,10,15,0.9) 100%),
-      url("assets/justin-kim/magazine shot jhkfit logo mobile.jpg") center/cover no-repeat;
+      linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.95) 62%, #000 75%, #000 100%),
+      url("assets/justin-kim/magazine shot jhkfit logo mobile.jpg") top center/100% auto no-repeat,
+      #000;
   }
 }
