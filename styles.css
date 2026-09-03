@@ -941,11 +941,7 @@ form .btn { border: 0; cursor: pointer; }
   }
 
   .final-cta-band {
-    /* Taller than the photo's own aspect ratio on purpose: the image is sized to
-       its native width (not cropped via cover), and the extra height below it is
-       solid black, guaranteeing the text block below never overlaps the physique
-       regardless of exact viewport width. */
-    aspect-ratio: 4909 / 6600;
+    aspect-ratio: 4909 / 5333;
     gap: 0.5rem;
     padding: 1.1rem 1.1rem 1.3rem;
     background:
