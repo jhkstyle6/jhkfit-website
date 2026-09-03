@@ -839,10 +839,20 @@ form .btn { border: 0; cursor: pointer; }
     object-position: center 15%;
   }
 
+  .funnel-hero-slideshow-mobile .slide[data-index="0"] { object-position: 90% 15%; }
+  .funnel-hero-slideshow-mobile .slide[data-index="1"] { object-position: 90% 15%; }
+  .funnel-hero-slideshow-mobile .slide[data-index="2"] { object-position: 58% 15%; }
+  .funnel-hero-slideshow-mobile .slide[data-index="3"] { object-position: 90% 15%; }
+  .funnel-hero-slideshow-mobile .slide[data-index="4"] {
+    object-position: 40% 15%;
+    transform: scale(1.4);
+    transform-origin: 40% 8%;
+  }
+
   .funnel-hero-overlay {
     background-image: none;
     background:
-      linear-gradient(180deg, rgba(5, 8, 15, 0.02) 0%, rgba(5, 8, 15, 0.08) 42%, rgba(5, 8, 15, 0.5) 62%, rgba(5, 8, 15, 0.93) 100%);
+      linear-gradient(180deg, rgba(5, 8, 15, 0.02) 0%, rgba(5, 8, 15, 0.08) 38%, rgba(5, 8, 15, 0.62) 58%, rgba(5, 8, 15, 0.97) 78%, rgba(5, 8, 15, 0.99) 100%);
   }
 
   .funnel-hero-content {
