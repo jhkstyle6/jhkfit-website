@@ -839,8 +839,16 @@ form .btn { border: 0; cursor: pointer; }
     object-position: center 15%;
   }
 
-  .funnel-hero-slideshow-mobile .slide[data-index="0"] { object-position: 90% 15%; }
-  .funnel-hero-slideshow-mobile .slide[data-index="1"] { object-position: 90% 15%; }
+  .funnel-hero-slideshow-mobile .slide[data-index="0"] {
+    object-position: 90% 15%;
+    transform: scale(1.5);
+    transform-origin: 50% 5%;
+  }
+  .funnel-hero-slideshow-mobile .slide[data-index="1"] {
+    object-position: 90% 15%;
+    transform: scale(1.5);
+    transform-origin: 50% 5%;
+  }
   .funnel-hero-slideshow-mobile .slide[data-index="2"] { object-position: 58% 15%; }
   .funnel-hero-slideshow-mobile .slide[data-index="3"] { object-position: 90% 15%; }
   .funnel-hero-slideshow-mobile .slide[data-index="4"] {
