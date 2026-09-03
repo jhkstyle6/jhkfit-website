@@ -915,6 +915,14 @@ form .btn { border: 0; cursor: pointer; }
     padding: 1.2rem;
   }
 
+  .faq-section {
+    padding-bottom: 0.8rem;
+  }
+
+  .final-cta-section {
+    padding-top: 0.6rem;
+  }
+
   .final-cta-band {
     aspect-ratio: 4909 / 5333;
     padding: 1.5rem 1.5rem 2.5rem;
