@@ -863,8 +863,12 @@ form .btn { border: 0; cursor: pointer; }
 
   .funnel-hero-overlay {
     background-image: none;
+    /* Fully opaque (not just "very dark") from 48% down — comfortably before
+       the text block starts (measured at ~58.5% down) — so the text always
+       sits on true solid black, never on partially-visible skin, regardless
+       of crop. */
     background:
-      linear-gradient(180deg, rgba(5, 8, 15, 0.02) 0%, rgba(5, 8, 15, 0.08) 38%, rgba(5, 8, 15, 0.62) 58%, rgba(5, 8, 15, 0.97) 78%, rgba(5, 8, 15, 0.99) 100%);
+      linear-gradient(180deg, rgba(5, 8, 15, 0) 0%, rgba(5, 8, 15, 0.08) 22%, rgba(5, 8, 15, 0.6) 36%, #05080f 48%, #05080f 100%);
   }
 
   .funnel-hero-content {
