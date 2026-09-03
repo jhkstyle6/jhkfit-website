@@ -844,9 +844,13 @@ form .btn { border: 0; cursor: pointer; }
   .funnel-hero-slideshow-mobile .slide[data-index="2"] { object-position: 58% 15%; }
   .funnel-hero-slideshow-mobile .slide[data-index="3"] { object-position: 90% 15%; }
   .funnel-hero-slideshow-mobile .slide[data-index="4"] {
-    object-position: 40% 15%;
-    transform: scale(1.4);
-    transform-origin: 40% 8%;
+    /* This crop has no headroom below the subject to push text into via
+       cropping, so show it fully uncropped (contain) anchored to the top —
+       the empty space that opens up below becomes safe, near-black
+       background (matching .funnel-hero's own bg + the overlay gradient)
+       for the text to sit on instead of the physique. */
+    object-fit: contain;
+    object-position: center top;
   }
 
   .funnel-hero-overlay {
