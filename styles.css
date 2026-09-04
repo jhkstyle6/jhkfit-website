@@ -857,7 +857,7 @@ form .btn { border: 0; cursor: pointer; }
     right: auto;
     bottom: auto;
     width: auto;
-    height: 50%;
+    height: 55%;
     transform: translateX(-50%);
     object-fit: initial;
     object-position: initial;
@@ -865,11 +865,11 @@ form .btn { border: 0; cursor: pointer; }
 
   .funnel-hero-overlay {
     background-image: none;
-    /* The photo is fixed at 50% of the hero's height (see .slide above), and
-       the text starts at ~58.5% down - fully opaque by 53% sits inside that
+    /* The photo is fixed at 55% of the hero's height (see .slide above), and
+       the text starts at ~58.5% down - fully opaque by 57% sits inside that
        gap, so it only ever darkens empty space, never the photo itself. */
     background:
-      linear-gradient(180deg, rgba(5, 8, 15, 0) 0%, rgba(5, 8, 15, 0.15) 35%, rgba(5, 8, 15, 0.75) 45%, #05080f 53%, #05080f 100%);
+      linear-gradient(180deg, rgba(5, 8, 15, 0) 0%, rgba(5, 8, 15, 0.2) 42%, rgba(5, 8, 15, 0.8) 50%, #05080f 57%, #05080f 100%);
   }
 
   .funnel-hero-content {
