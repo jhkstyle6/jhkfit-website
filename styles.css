@@ -839,37 +839,37 @@ form .btn { border: 0; cursor: pointer; }
     object-position: center 15%;
   }
 
-  .funnel-hero-slideshow-mobile .slide[data-index="0"] {
-    object-position: 90% 15%;
-    transform: scale(1.5);
-    transform-origin: 50% 5%;
-  }
-  .funnel-hero-slideshow-mobile .slide[data-index="1"] {
-    object-position: 90% 15%;
-    transform: scale(1.5);
-    transform-origin: 50% 5%;
-  }
-  .funnel-hero-slideshow-mobile .slide[data-index="2"],
-  .funnel-hero-slideshow-mobile .slide[data-index="3"],
-  .funnel-hero-slideshow-mobile .slide[data-index="4"] {
-    /* These are full-body shots where the subject's feet sit right at (or
-       past) the bottom edge once cropped to this very tall aspect ratio —
-       there's no floor buffer left to darken into without covering the
-       legs. Show the photo fully uncropped (contain) anchored to the top
-       instead: nothing gets cropped OR darkened, legs included, and the
-       empty space that opens up below becomes safe background for the text. */
-    object-fit: contain;
-    object-position: center top;
+  /* object-fit:contain's sizing flips between width- and height-constrained
+     depending on the exact container aspect ratio, which is NOT reliable
+     across real devices (Safari's real visible height with its toolbars
+     differs from what any desktop emulator simulates) - it tested fine and
+     then broke on an actual iPhone. Fixing the height to a set percentage
+     of the hero (width:auto, so the browser derives it from the image's own
+     aspect ratio) sidesteps that comparison entirely - it's always
+     height-driven, on every device, full stop. The whole photo is always
+     shown with nothing cropped, and the fixed height (well short of where
+     the text starts, ~58.5% down) guarantees a real gap before the text
+     regardless of device or aspect ratio. */
+  .funnel-hero-slideshow-mobile .slide {
+    inset: auto;
+    top: 0;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    height: 50%;
+    transform: translateX(-50%);
+    object-fit: initial;
+    object-position: initial;
   }
 
   .funnel-hero-overlay {
     background-image: none;
-    /* Fully opaque from 48% down — comfortably before the text block starts
-       (measured at ~58.5% down) — so the text always sits on true solid
-       black. Slides 2-4 use object-fit:contain above, so this only ever
-       darkens empty background there, never the physique. */
+    /* The photo is fixed at 50% of the hero's height (see .slide above), and
+       the text starts at ~58.5% down - fully opaque by 53% sits inside that
+       gap, so it only ever darkens empty space, never the photo itself. */
     background:
-      linear-gradient(180deg, rgba(5, 8, 15, 0) 0%, rgba(5, 8, 15, 0.08) 22%, rgba(5, 8, 15, 0.6) 36%, #05080f 48%, #05080f 100%);
+      linear-gradient(180deg, rgba(5, 8, 15, 0) 0%, rgba(5, 8, 15, 0.15) 35%, rgba(5, 8, 15, 0.75) 45%, #05080f 53%, #05080f 100%);
   }
 
   .funnel-hero-content {
