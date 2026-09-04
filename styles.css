@@ -849,24 +849,25 @@ form .btn { border: 0; cursor: pointer; }
     transform: scale(1.5);
     transform-origin: 50% 5%;
   }
-  .funnel-hero-slideshow-mobile .slide[data-index="2"] { object-position: 58% 15%; }
-  .funnel-hero-slideshow-mobile .slide[data-index="3"] { object-position: 90% 15%; }
+  .funnel-hero-slideshow-mobile .slide[data-index="2"],
+  .funnel-hero-slideshow-mobile .slide[data-index="3"],
   .funnel-hero-slideshow-mobile .slide[data-index="4"] {
-    /* This crop has no headroom below the subject to push text into via
-       cropping, so show it fully uncropped (contain) anchored to the top —
-       the empty space that opens up below becomes safe, near-black
-       background (matching .funnel-hero's own bg + the overlay gradient)
-       for the text to sit on instead of the physique. */
+    /* These are full-body shots where the subject's feet sit right at (or
+       past) the bottom edge once cropped to this very tall aspect ratio —
+       there's no floor buffer left to darken into without covering the
+       legs. Show the photo fully uncropped (contain) anchored to the top
+       instead: nothing gets cropped OR darkened, legs included, and the
+       empty space that opens up below becomes safe background for the text. */
     object-fit: contain;
     object-position: center top;
   }
 
   .funnel-hero-overlay {
     background-image: none;
-    /* Fully opaque (not just "very dark") from 48% down — comfortably before
-       the text block starts (measured at ~58.5% down) — so the text always
-       sits on true solid black, never on partially-visible skin, regardless
-       of crop. */
+    /* Fully opaque from 48% down — comfortably before the text block starts
+       (measured at ~58.5% down) — so the text always sits on true solid
+       black. Slides 2-4 use object-fit:contain above, so this only ever
+       darkens empty background there, never the physique. */
     background:
       linear-gradient(180deg, rgba(5, 8, 15, 0) 0%, rgba(5, 8, 15, 0.08) 22%, rgba(5, 8, 15, 0.6) 36%, #05080f 48%, #05080f 100%);
   }
